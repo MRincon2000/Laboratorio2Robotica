@@ -2,7 +2,8 @@ rosinit;
 
 %% SUSCRIBIRSE AL TOPICO turtle1 PARA VER LA POSICION Y ORIENTACION ACTUAL
 
-suscriptor() %Llama a la funcion suscriptor()
+SUBS= suscriptor() %Llama a la funcion suscriptor()
+SUBS.LatestMessage %Obtiene el ultimo mensaje del topico y lo muestra.
 
 %% ENVIAR POSICION ABSOLUTA PARA QUE LA TORTUGA SE MUEVA ALLI
 
@@ -11,9 +12,8 @@ traslacion() %Llama a la funcion traslacion()
 
 
 %% FUNCIONES
-function suscriptor()
-    SUBS=rossubscriber('/turle1/pose'); %Crea un suscriptor al topico pose.
-    SUBS.LatestMessage %Obtiene el ultimo mensaje del topico y lo muestra.
+function SUBS =suscriptor()
+    SUBS=rossubscriber('/turtle1/pose'); %Crea un suscriptor al topico pose.
 end
 
 function traslacion()
